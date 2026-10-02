@@ -8,7 +8,7 @@
 <meta name="description" content="Interaktive Standkarte und Live-Navigation für das Bulldogtreffen Welmlingen 2026. Finde alle Aussteller, Traktoren, Parkplätze und Verpflegungsstände.">
 <meta name="keywords" content="Bulldogtreffen Welmlingen, Traktortreffen, Bulldogfreunde Wälmlige, Welmlingen Fest, Standkarte, Bulldogtreffen 2026">
 
-<!-- WhatsApp & Social Media Vorschau (Open Graph) -->
+<!-- WhatsApp & Social Media Vorschau -->
 <meta property="og:title" content="Standkarte Bulldogtreffen Welmlingen 2026">
 <meta property="og:description" content="Alle Stände, Parkplätze und Infos direkt auf deinem Smartphone navigieren.">
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://bfw2026.finnwmedia.de/preview.jpg">
 
 <!-- Google Search Console Verifizierung -->
-<meta name="google-site-verification" content="ejKMvYZgjYRsJB1dS3A4JkHNL7qeMfYkvgynfs-rgs4" />
+<meta name="google-site-verification" content="ejK..." />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -59,6 +59,13 @@
   }
   button.nav-link:hover { background-color: #b71c1c; }
   
+  .custom-combined-icon {
+    display: flex; gap: 4px; background: transparent; border: none; justify-content: center;
+  }
+  .custom-combined-icon img {
+    width: 40px; height: 40px; object-fit: contain;
+  }
+
   .user-location { animation: pulse 1.5s infinite; }
   @keyframes pulse {
     0% { transform: scale(1); opacity: 0.7; }
@@ -122,16 +129,19 @@
   const bulldogStaende = [
     { name: 'Kinderschminken', lat: 47.689694, lng: 7.562317, type: 'normal' },
     { name: 'Trettracktor Parcour', lat: 47.689542, lng: 7.561644, type: 'normal' },
-    { name: 'Milchhüsli mit Verpflegung', beschreibung: 'Verpflegung: Getränke und Wurst', lat: 47.690597, lng: 7.560825, type: 'food' },
     { name: 'Stellplatz für Schlepper/Bulldog', beschreibung: 'Ausstellung', lat: 47.688733, lng: 7.561336, type: 'normal' },
     { name: 'Dreschvorführung um 13 Uhr', lat: 47.689886, lng: 7.562539, type: 'normal' },
-    { name: 'Festplatz mit Hauptverpflegung', beschreibung: 'Verpflegung: Getränke, Wurst, Schweinsprägel und Chässelefleisch', lat: 47.690158, lng: 7.561958, type: 'food' },
     { name: 'Stand mit Verpflegung', beschreibung: 'Verpflegung: Getränke und Wurst', lat: 47.689597, lng: 7.561453, type: 'food' },
     { name: 'Auto-Parkplatz (Sportplatz)', lat: 47.691067, lng: 7.566519, type: 'park' },
     { name: 'Auto-Parkplatz (Friedhof)', lat: 47.692292, lng: 7.558044, type: 'park' },
-    { name: 'Toiletten beim Milchhüsli', lat: 47.690661, lng: 7.560644, type: 'wc' },
+    { name: 'Bulldog/Schlepper Anmeldung', lat: 47.690311, lng: 7.562044, type: 'normal' },
     { name: 'Toiletten (Zentrum)', lat: 47.689842, lng: 7.561789, type: 'wc' },
-    { name: 'Rathausplatz Toiletten', lat: 47.690222, lng: 7.561922, type: 'wc' }
+    
+    // KOMBIS-STANDORT 1: Milchhüsli
+    { name: 'Milchhüsli (Verpflegung & Toiletten)', beschreibung: 'Getränke, Wurst und öffentliche Toiletten', lat: 47.690597, lng: 7.560825, type: 'food_wc' },
+    
+    // KOMBIS-STANDORT 2: Festplatz & Rathaus Toiletten
+    { name: 'Festplatz (Hauptverpflegung & Toiletten)', beschreibung: 'Getränke, Wurst, Schweinsprägel, Chässelefleisch und öffentliche Toiletten', lat: 47.690158, lng: 7.561958, type: 'food_wc' }
   ];
 
   var standIcon = L.icon({ iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] });
@@ -215,6 +225,17 @@
     if (stand.type === 'wc') iconToUse = wcIcon;
     if (stand.type === 'park') iconToUse = parkIcon;
     
+    // Kombinierter HTML-Marker für Essen & WC
+    if (stand.type === 'food_wc') {
+      iconToUse = L.divIcon({
+        className: 'custom-combined-icon',
+        html: `<img src="https://cdn-icons-png.flaticon.com/512/5193/5193679.png" alt="Essen"><img src="https://cdn-icons-png.flaticon.com/512/2183/2183556.png" alt="WC">`,
+        iconSize: [84, 40], // Breite für beide Symbole nebeneinander
+        iconAnchor: [42, 40],
+        popupAnchor: [0, -40]
+      });
+    }
+
     var marker = L.marker([stand.lat, stand.lng], { icon: iconToUse, itemData: stand, alt: `Stand: ${stand.name}` }).addTo(map);
     marker.bindPopup(createPopupContent(stand), { autoPan: true, autoPanPadding: [20, 20], maxWidth: 220, closeButton: true });
   });
@@ -233,4 +254,4 @@
 </script>
 
 </body>
-</html>s
+</html>
