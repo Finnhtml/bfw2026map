@@ -2,256 +2,154 @@
 <html lang="de">
 <head>
 <meta charset="utf-8" />
-<title>Standkarte & Infos - Bulldogtreffen Welmlingen 2026</title>
+<title>Video in Arbeit - Bulldogtreffen Welmlingen 2026</title>
 
 <!-- Suchmaschinen & SEO -->
-<meta name="description" content="Interaktive Standkarte und Live-Navigation für das Bulldogtreffen Welmlingen 2026. Finde alle Aussteller, Traktoren, Parkplätze und Verpflegungsstände.">
-<meta name="keywords" content="Bulldogtreffen Welmlingen, Traktortreffen, Bulldogfreunde Wälmlige, Welmlingen Fest, Standkarte, Bulldogtreffen 2026">
+<meta name="description" content="Das offizielle Video zum Bulldogtreffen Welmlingen 2026 ist bald verfügbar! Schau demnächst wieder vorbei.">
+<meta name="keywords" content="Bulldogtreffen Welmlingen, Traktortreffen, Bulldogfreunde Wälmlige, Video, Aftermovie, 2026">
 
 <!-- WhatsApp & Social Media Vorschau -->
-<meta property="og:title" content="Standkarte Bulldogtreffen Welmlingen 2026">
-<meta property="og:description" content="Alle Stände, Parkplätze und Infos direkt auf deinem Smartphone navigieren.">
+<meta property="og:title" content="Bulldogtreffen Welmlingen 2026 - Video in Arbeit">
+<meta property="og:description" content="Das Fest ist vorbei, der Film ist im Schnitt! Bald gibt es das Video hier zu sehen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bfw2026.finnwmedia.de">
-<meta property="og:image" content="https://bfw2026.finnwmedia.de/preview.jpg">
-
-<!-- Google Search Console Verifizierung -->
-<meta name="google-site-verification" content="ejK..." />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <style>
   body, html {
-    margin: 0; padding: 0; height: 100%; width: 100%;
-    font-family: 'Segoe UI', sans-serif; background: #f0f2f5;
-  }
-  #map { height: 100vh; width: 100%; box-shadow: 0 5px 25px rgba(0,0,0,0.3); }
-  
-  button:focus-visible, a:focus-visible { outline: 3px solid #005fcc; outline-offset: 2px; }
-  
-  .title {
-    position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
-    background: rgba(255,255,255,0.85); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-    padding: 10px 25px; border-radius: 16px; font-size: 20px; font-weight: 700;
-    color: #222; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); z-index: 1000;
-    pointer-events: none; text-align: center; white-space: nowrap; margin: 0;
-  }
-  .designer {
-    position: absolute; top: 65px; left: 50%; transform: translateX(-50%);
-    background: rgba(255,255,255,0.4); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
-    padding: 3px 10px; border-radius: 10px; font-size: 12px;
-    font-weight: 500; color: #444; z-index: 999; pointer-events: none; white-space: nowrap;
+    margin: 0; 
+    padding: 0; 
+    height: 100%; 
+    width: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
   }
   
-  .leaflet-popup-content-wrapper {
-    border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    font-size: 14px; padding: 12px; background: #ffffffcc;
-    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
-  }
-  .leaflet-popup-content b { font-size: 15px; display: block; margin-bottom: 6px; color: #333; }
-  .leaflet-popup-content i { font-size: 13px; color: #555; display: block; margin-bottom: 10px; }
-  button.nav-link {
-    text-decoration: none; color: #fff; background-color: #d32f2f;
-    padding: 8px 12px; border-radius: 6px; font-weight: 600; font-size: 14px;
-    display: inline-block; transition: background-color 0.2s ease;
-    cursor: pointer; border: none; width: 100%; font-family: inherit;
-  }
-  button.nav-link:hover { background-color: #b71c1c; }
-  
-  .custom-combined-icon {
-    display: flex; gap: 4px; background: transparent; border: none; justify-content: center;
-  }
-  .custom-combined-icon img {
-    width: 40px; height: 40px; object-fit: contain;
+  .container {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    max-width: 500px;
+    width: 85%;
+    text-align: center;
   }
 
-  .user-location { animation: pulse 1.5s infinite; }
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.3); opacity: 0.4; }
-    100% { transform: scale(1); opacity: 0.7; }
+  .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: #fdf0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
   }
-  
-  #loader-container {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #f0f2f5;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    z-index: 2000; transition: opacity 0.5s ease;
+
+  .icon-wrapper img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
   }
-  .loader {
-    border: 8px solid #f3f3f3; border-top: 8px solid #d32f2f; border-radius: 50%;
-    width: 50px; height: 50px; animation: spin 2s linear infinite;
+
+  h1 {
+    color: #d32f2f;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
   }
-  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  
-  .disclaimer {
-    position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%);
-    z-index: 1001; color: #ddd; font-size: 10px; text-align: center;
-    width: 100%; padding: 0 10px; box-sizing: border-box; pointer-events: auto;
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
   }
-  .disclaimer a { color: #ddd; text-decoration: none; font-weight: bold; padding: 2px 5px; }
-  .disclaimer a:hover { text-decoration: underline; }
+
+  .pulse-button {
+    display: inline-block;
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    pointer-events: none; /* Knopf ist nicht klickbar, da Coming Soon */
+    animation: pulse-red 2s infinite;
+    margin-bottom: 20px;
+  }
+
+  @keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+  }
+
+  .finnwmedia-link {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #005fcc;
+    text-decoration: none;
+    padding: 8px 15px;
+    background: #f0f8ff;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+
+  .finnwmedia-link:hover {
+    background: #e0f0ff;
+    text-decoration: none;
+  }
+
+  .footer {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+  }
+
+  .footer a {
+    color: #888;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    color: #d32f2f;
+  }
 </style>
 </head>
 <body>
 
-<main>
-  <div id="loader-container" role="status" aria-live="polite">
-    <div class="loader"></div>
-    <p>Karte wird geladen...</p>
+  <div class="container">
+    <div class="icon-wrapper">
+      <img src="https://cdn-icons-png.flaticon.com/512/3172/3172568.png" alt="Video in Arbeit">
+    </div>
+    
+    <h1>Das Video ist in Arbeit! 🚜🎬</h1>
+    
+    <p>Das Bulldogtreffen Welmlingen 2026 war ein voller Erfolg! Ich sichte aktuell das gesamte Filmmaterial und sitze bereits am Schnitt für den Aftermovie.</p>
+    
+    <p>Das offizielle Video erscheint in Kürze auf YouTube und wird dann direkt hier auf dieser Seite für euch eingebunden. Schaut bald wieder vorbei!</p>
+    
+    <div class="pulse-button">Demnächst verfügbar</div>
+    <br>
+    <a href="https://finnwmedia.de" target="_blank" class="finnwmedia-link">Besuche finnwmedia.de</a>
   </div>
 
-  <header>
-    <h1 class="title">Bulldogtreffen Welmlingen 2026</h1>
-    <div class="designer" aria-label="Webdesign von Finn Wasmer">Designt von Finn Wasmer</div>
-  </header>
-
-  <div id="map" role="region" aria-label="Interaktive Standkarte für das Bulldogtreffen"></div>
-
-  <footer class="disclaimer">
-    Alle Angaben ohne Gewähr. | 
+  <div class="footer">
+    &copy; 2026 <a href="https://finnwmedia.de" target="_blank">FinnW Media</a> | 
     <a href="impressum.html">Impressum</a> | 
     <a href="datenschutz.html">Datenschutz</a>
-  </footer>
-</main>
-
-<script>
-  var map = L.map('map', { minZoom: 15, maxZoom: 19 }).setView([47.6897, 7.5616], 17);
-
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles © Esri — Source: Esri, Maxar, Earthstar Geographics', maxZoom: 19
-  }).addTo(map);
-
-  var bounds = [ [47.685, 7.555], [47.694, 7.568] ];
-  map.setMaxBounds(bounds);
-  map.on('drag', function() { map.panInsideBounds(bounds, { animate: false }); });
-
-  const bulldogStaende = [
-    { name: 'Kinderschminken', lat: 47.689694, lng: 7.562317, type: 'normal' },
-    { name: 'Trettracktor Parcour', lat: 47.689542, lng: 7.561644, type: 'normal' },
-    { name: 'Stellplatz für Schlepper/Bulldog', beschreibung: 'Ausstellung', lat: 47.688733, lng: 7.561336, type: 'normal' },
-    { name: 'Dreschvorführung um 13 Uhr', lat: 47.689886, lng: 7.562539, type: 'normal' },
-    { name: 'Stand mit Verpflegung', beschreibung: 'Verpflegung: Getränke und Wurst', lat: 47.689597, lng: 7.561453, type: 'food' },
-    { name: 'Auto-Parkplatz (Sportplatz)', lat: 47.691067, lng: 7.566519, type: 'park' },
-    { name: 'Auto-Parkplatz (Friedhof)', lat: 47.692292, lng: 7.558044, type: 'park' },
-    { name: 'Bulldog/Schlepper Anmeldung', lat: 47.690311, lng: 7.562044, type: 'normal' },
-    { name: 'Toiletten (Zentrum)', lat: 47.689842, lng: 7.561789, type: 'wc' },
-    
-    // KOMBIS-STANDORT 1: Milchhüsli
-    { name: 'Milchhüsli (Verpflegung & Toiletten)', beschreibung: 'Getränke, Wurst und öffentliche Toiletten', lat: 47.690597, lng: 7.560825, type: 'food_wc' },
-    
-    // KOMBIS-STANDORT 2: Festplatz & Rathaus Toiletten
-    { name: 'Festplatz (Hauptverpflegung & Toiletten)', beschreibung: 'Getränke, Wurst, Schweinsprägel, Chässelefleisch und öffentliche Toiletten', lat: 47.690158, lng: 7.561958, type: 'food_wc' }
-  ];
-
-  var standIcon = L.icon({ iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', iconSize: [32,32], iconAnchor: [16,32], popupAnchor: [0,-32] });
-  var foodIcon = L.icon({ iconUrl: 'https://cdn-icons-png.flaticon.com/512/5193/5193679.png', iconSize: [40,40], iconAnchor: [20,40], popupAnchor: [0,-40] });
-  var wcIcon = L.icon({ iconUrl: 'https://cdn-icons-png.flaticon.com/512/2183/2183556.png', iconSize: [40,40], iconAnchor: [20,40], popupAnchor: [0,-40] });
-  var parkIcon = L.icon({ iconUrl: 'https://cdn-icons-png.flaticon.com/512/3680/3680366.png', iconSize: [40,40], iconAnchor: [20,40], popupAnchor: [0,-40] });
-
-  let userMarker = null; let lastUserPosition = null; let locationUpdateInterval = null;
-  let positionHistory = []; let isLocationStabilized = false;
-
-  window.navigateSmart = function(lat, lng, userLat, userLon) {
-    const isIOS = /(iPhone|iPod|iPad)/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    let url = '';
-    if (isIOS) { url = `http://maps.apple.com/?daddr=${lat},${lng}&dirflg=d`; if (userLat && userLon) url += `&saddr=${userLat},${userLon}`; }
-    else { url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`; if (userLat && userLon) url += `&origin=${userLat},${userLon}`; }
-    window.open(url, '_blank');
-  };
-
-  function createPopupContent(item, userLat, userLon) {
-    let content = `<b>${item.name}</b>`;
-    if(item.beschreibung){ content += `<i>${item.beschreibung}</i>`; }
-    let uLat = userLat ? userLat : 'null'; let uLon = userLon ? userLon : 'null';
-    content += `<button class="nav-link" onclick="navigateSmart(${item.lat}, ${item.lng}, ${uLat}, ${uLon});" aria-label="Navigation zu ${item.name} starten">📍 Navigation</button>`;
-    return content;
-  }
-
-  function updatePopups(userLat, userLon) {
-    map.eachLayer(layer => {
-      if (layer instanceof L.Marker && layer.options.itemData) {
-        layer.setPopupContent(createPopupContent(layer.options.itemData, userLat, userLon));
-      }
-    });
-  }
-
-  function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371e3; const φ1 = lat1 * Math.PI/180; const φ2 = lat2 * Math.PI/180;
-    const Δφ = (lat2-lat1) * Math.PI/180; const Δλ = (lon2-lon1) * Math.PI/180;
-    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ/2) * Math.sin(Δλ/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); return R * c;
-  }
-
-  function getSmoothedPosition(newLat, newLon) {
-    positionHistory.push({ lat: newLat, lon: newLon, timestamp: Date.now() });
-    if (positionHistory.length > 5) positionHistory.shift();
-    let avgLat = 0, avgLon = 0;
-    positionHistory.forEach(pos => { avgLat += pos.lat; avgLon += pos.lon; });
-    return { lat: avgLat / positionHistory.length, lon: avgLon / positionHistory.length };
-  }
-
-  function updateUserLocation(position) {
-    const rawLat = position.coords.latitude; const rawLon = position.coords.longitude;
-    if (position.coords.accuracy > 30) return;
-    const smoothed = getSmoothedPosition(rawLat, rawLon);
-    const userLat = smoothed.lat; const userLon = smoothed.lon;
-
-    if (lastUserPosition && isLocationStabilized) { if (calculateDistance(lastUserPosition.lat, lastUserPosition.lon, userLat, userLon) < 15) return; }
-    if (lastUserPosition && positionHistory.length <= 3) { if (calculateDistance(lastUserPosition.lat, lastUserPosition.lon, userLat, userLon) < 8) return; }
-    if (positionHistory.length >= 3) isLocationStabilized = true;
-    lastUserPosition = { lat: userLat, lon: userLon };
-
-    if (userMarker) { userMarker.setLatLng([userLat, userLon]); }
-    else {
-      userMarker = L.circleMarker([userLat, userLon], {
-        radius: 10, fillColor: "#007bff", color: "#ffffff", weight: 3, opacity: 1, fillOpacity: 0.8, className: 'user-location'
-      }).addTo(map).bindPopup("Dein aktueller Standort", { autoPan: false });
-    }
-    updatePopups(userLat, userLon);
-  }
-
-  function startLocationTracking() {
-    if (!navigator.geolocation) return;
-    navigator.geolocation.getCurrentPosition(updateUserLocation, function(error) { }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
-    locationUpdateInterval = setInterval(() => {
-      navigator.geolocation.getCurrentPosition(updateUserLocation, function(error) {}, { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 });
-    }, 15000);
-  }
-
-  bulldogStaende.forEach(stand => {
-    let iconToUse = standIcon;
-    if (stand.type === 'food') iconToUse = foodIcon;
-    if (stand.type === 'wc') iconToUse = wcIcon;
-    if (stand.type === 'park') iconToUse = parkIcon;
-    
-    // Kombinierter HTML-Marker für Essen & WC
-    if (stand.type === 'food_wc') {
-      iconToUse = L.divIcon({
-        className: 'custom-combined-icon',
-        html: `<img src="https://cdn-icons-png.flaticon.com/512/5193/5193679.png" alt="Essen"><img src="https://cdn-icons-png.flaticon.com/512/2183/2183556.png" alt="WC">`,
-        iconSize: [84, 40], // Breite für beide Symbole nebeneinander
-        iconAnchor: [42, 40],
-        popupAnchor: [0, -40]
-      });
-    }
-
-    var marker = L.marker([stand.lat, stand.lng], { icon: iconToUse, itemData: stand, alt: `Stand: ${stand.name}` }).addTo(map);
-    marker.bindPopup(createPopupContent(stand), { autoPan: true, autoPanPadding: [20, 20], maxWidth: 220, closeButton: true });
-  });
-
-  startLocationTracking();
-
-  window.addEventListener('load', function() {
-    const loaderContainer = document.getElementById('loader-container');
-    loaderContainer.style.opacity = '0';
-    setTimeout(() => { loaderContainer.style.display = 'none'; loaderContainer.setAttribute('aria-hidden', 'true'); }, 500);
-  });
-
-  window.addEventListener('beforeunload', function() {
-    if (locationUpdateInterval) clearInterval(locationUpdateInterval);
-  });
-</script>
+  </div>
 
 </body>
 </html>
